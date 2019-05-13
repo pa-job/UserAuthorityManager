@@ -1,2 +1,0 @@
-localhost:8080/ProjectAudit/html/userCenter/login.html
-http://localhost:8080/ProjectAudit/browser/index.html#/
