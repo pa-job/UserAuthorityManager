@@ -74,10 +74,9 @@ public class LogService implements LogServiceInter{
 	}
 	
 	@Override
-	public int saveOrganBackId( LogMapper logrecord ) {
+	public int saveOrganBackId( LogRecord logrecord ) {
 		try {
-			LogRecord l = new LogRecord();
-			int i = logMapper.saveLogBackId( l );
+			int i = logMapper.saveLogBackId( logrecord );
 			return i;
 		} catch (Exception e) {
 			e.printStackTrace();

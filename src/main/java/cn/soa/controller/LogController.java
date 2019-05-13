@@ -78,7 +78,7 @@ public class LogController {
 	}
 	
 	@PostMapping("")
-	public ResultJson<Integer> saveOrganBackIdC( @RequestBody LogMapper logrecord ){
+	public ResultJson<Integer> saveOrganBackIdC( @RequestBody LogRecord logrecord ){
 		logger.debug( "----------保存日志记录-----------" );
 		logger.debug( logrecord.toString() );
 		int i = logService.saveOrganBackId( logrecord );

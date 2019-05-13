@@ -23,6 +23,43 @@ $(function(){
 	      ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
 	    ]]
 	  });			
+	
+	//获取usernum
+	username = getCookie1("name");
+	username = username.substr( 1, username.length-2);
+	userRole = getCookie1("roleNames");
+	$('.userName').text(username);
+	$('.adminName').text(username);
+
+	var logdata = {};	
+	logdata.operateTime = new Date().toLocaleDateString();
+	logdata.personid = username;
+	logdata.personname = username;
+	logdata.sourcename = "角色管理";
+	
+	$.ajax({
+	     type: "post",
+	     url: ipPort+"/logs",
+	     data: JSON.stringify(logdata),
+	     async: true, //默认
+	     cache: true, //默认
+	     contentType: "application/json",
+	     dataType: "json",
+	     success: function( jsonData ){
+	    	 if( jsonData ){
+	    		 if( jsonData.state == 0 ){
+	    			 console.log('日志保存成功');
+	    		 }else{
+	    			 console.log('日志保存失败');
+	    		 }
+	    		 
+	    	 }
+	     },
+	     error:function(){
+	    	 layer.msg('请求失败：');
+	     }		       
+	});
+	
 	//表格头工具事件简单封装
 	var toolbarAction={
 			openLayer:function(){

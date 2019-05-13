@@ -33,6 +33,6 @@ public interface LogServiceInter {
 
 	List<LogRecord> findByUserid(String userid);
 
-	int saveOrganBackId(LogMapper logrecord);
+	int saveOrganBackId(LogRecord logrecord);
 	
 }

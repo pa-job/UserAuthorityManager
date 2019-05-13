@@ -7,7 +7,42 @@ $(function(){
 		layer = layui.layer,
 		gUrl = ipPort + "/logs",
 		gUrlByNum = ipPort + "/logs/userid";
-		
+	
+	//获取usernum
+	username = getCookie1("name");
+	username = username.substr( 1, username.length-2);
+	userRole = getCookie1("roleNames");
+	$('.userName').text(username);
+	$('.adminName').text(username);
+
+	var logdata = {};	
+	logdata.operateTime = new Date().toLocaleDateString();
+	logdata.personid = username;
+	logdata.personname = username;
+	logdata.sourcename = "日志管理";
+	
+	$.ajax({
+	     type: "post",
+	     url: ipPort+"/logs",
+	     data: JSON.stringify(logdata),
+	     async: true, //默认
+	     cache: true, //默认
+	     contentType: "application/json",
+	     dataType: "json",
+	     success: function( jsonData ){
+	    	 if( jsonData ){
+	    		 if( jsonData.state == 0 ){
+	    			 console.log('日志保存成功');
+	    		 }else{
+	    			 console.log('日志保存失败');
+	    		 }
+	    		 
+	    	 }
+	     },
+	     error:function(){
+	    	 layer.msg('请求失败：');
+	     }		       
+	});
 
 	/**
 	 * 页面初始化
@@ -20,7 +55,7 @@ $(function(){
 	 */
 	function getLogsSF( data ){
 		console.log( '---------表格初始化请求成功回调函数----------' );
-		console.log( data );
+		//console.log( data );
 		generateBTable( 'user_table', data );
 	}
 	$('#search').on('click',function(){
@@ -33,12 +68,12 @@ $(function(){
 	 */
 	function getLogsByNumSF( data ){
 		console.log( '--------搜索请求成功回调函数--------' );
-//		console.log( data );
+		console.log( data );
 		var arr = [];
 		arr.push(data);
 		//执行重载
 		$( '#tableDiv' ).empty().append(' <table class="layui-hide" id="user_table" lay-filter="user_table"></table>');
-		generateBTable( 'user_table', arr );
+		generateBTable( 'user_table', data );
 	}
 
 	/*
@@ -61,7 +96,7 @@ $(function(){
 			cols : [ [
 				{type: 'numbers',title:'序号', align:'center'}
 		    	,{field:'lrid', title:'id',  fixed: 'left', hide: true, align:'center'}
-		    	,{field:'operateTime', title:'操作时间',   align:'center'}
+		    	,{field:'operateTime', title:'访问时间',   align:'center'}
 		    	,{field:'personid', title:'用户id',  align:'center'}
 		    	,{field:'personname', title:'用户姓名',  align:'center'}
 		    	,{field:'sourcename', title:'资源名称', align:'center'}

@@ -14,7 +14,7 @@
 	<!-- 1.2、根据id查询用户日志记录 -->
 	<select id="findByUserid" parameterType="string" resultType="cn.soa.entity.LogRecord">
 		select * from iot_logrecord
-		where userid = #{userid}
+		where personid = #{userid}
 	</select>
 	
 	

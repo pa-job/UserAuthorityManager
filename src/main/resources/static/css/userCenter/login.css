@@ -62,7 +62,7 @@ div[class^="layui-col-"] {
 	position: fixed;
 	left:25%;top:13%;
 	z-index:222;
-font-size: 58px;
+font-size: 48px;
 text-shadow: 5px 5px 5px black;
 color: white;
 }
