@@ -73,9 +73,10 @@ public class RoleController{
 	private static Logger logger = LoggerFactory.getLogger( RoleController.class );
 	
 	@RequestMapping("/roles")
-	public UserTableJson<List<UserRole>> queryAllroles(@RequestParam(value="page",required = false) Integer page ,@RequestParam(value="limit",required = false) Integer limit) {
-		return new UserTableJson<List<UserRole>>("",0,"",roleService.queryAllroles(page, limit),roleService.countRoles(),true);
+	public UserTableJson<List<UserRole>> queryAllroles(@RequestParam(value="page",required = false) Integer page ,@RequestParam(value="limit",required = false) Integer limit,@RequestParam(value="name",required = false) String  name ) {
+		return new UserTableJson<List<UserRole>>("",0,"",roleService.queryAllroles(page, limit,name),roleService.countRoles(),true);
 	}
+	
 	@RequestMapping("/addOrUpdateRole")
 	public ResultJson addOrUpdateRoles(UserRole userRole) {
 		String rid=userRole.getRolid();
