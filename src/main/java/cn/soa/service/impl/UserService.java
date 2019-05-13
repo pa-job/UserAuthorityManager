@@ -335,7 +335,7 @@ public class UserService implements UserServiceInter{
 	 */  
 	@Override
 	@Transactional
-	public UserOrganization saveUserBackId( String usernum, String name ) {
+	public UserOrganization saveUserBackId( String usernum, String pwd,String name,String remark1,Integer state,String remark2,String note ) {
 		int i = 0;
 		try {
 			/*
@@ -343,8 +343,13 @@ public class UserService implements UserServiceInter{
 			 */
 			UserOrganization u = new UserOrganization();
 			u.setName(name);
+			u.setUser_password(pwd);
 			u.setUsernum(usernum);
 			u.setIs_parent(1);
+			u.setRemark1(remark1);
+			u.setRemark2(remark2);
+			u.setNote(note);
+			u.setState(state);
 			i = userMapper.saveUserBackId(u);
 			if( i > 0) {
 				return u;
@@ -416,13 +421,14 @@ public class UserService implements UserServiceInter{
 	 * @return: int        
 	 */ 
 	@Override
-	public int modifyUserByIdServ( String orgid, String usernum, String name  ) {
+	public int modifyUserByIdServ( String orgid, String usernum, String name, String user_password  ) {
 		int i = -1;
 		try {
 			UserOrganization u = new UserOrganization();
 			u.setOrgid(orgid);
 			u.setUsernum(usernum);
 			u.setName(name);
+			u.setUser_password(user_password);
 			i = userMapper.modifyUserById(u);
 		} catch (Exception e) {
 			e.printStackTrace();

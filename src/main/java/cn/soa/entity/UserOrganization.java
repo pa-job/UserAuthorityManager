@@ -59,11 +59,11 @@ public class UserOrganization implements Serializable{
 	private Integer is_parent; 
 	private Integer state;
 	private String note;
-	private Integer remark1;
+	private String remark1;
 	private String remark2;
 	
 	public UserOrganization(String name, String parent_id, String usernum, String user_password, 
-			Integer is_parent, String note, Integer remark1, String remark2) {
+			Integer is_parent, String note, String remark1, String remark2) {
 		this.name = name;
 		this.parent_id = parent_id;
 		this.usernum = usernum;
@@ -75,7 +75,7 @@ public class UserOrganization implements Serializable{
 	}
 	
 	public UserOrganization(String name, String parent_id, String usernum, String user_password, 
-			Integer is_parent, Integer state, String note, Integer remark1, String remark2) {
+			Integer is_parent, Integer state, String note, String remark1, String remark2) {
 		this.name = name;
 		this.parent_id = parent_id;
 		this.usernum = usernum;

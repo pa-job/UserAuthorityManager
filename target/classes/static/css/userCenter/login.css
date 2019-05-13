@@ -3,13 +3,16 @@ blockquote {
 }
 
 .layui-fluid {
-	height: calc( 100vh - 63px);
+	height: 100vh;
+	width:100vw;
 	margin: 0;
 	padding: 0;
 	overflow: auto;
 	/*background-color: white;*/
-	background-image: url('../../img/iot_login.jpg');
-	background-size: 100% 100%;
+	background-image: url('../../images/iot_login.jpg');
+	background-size:cover;
+	background-repeat: no-repeat;
+
 }
 input {
 	height: 80px;	
@@ -32,7 +35,7 @@ div[class^="layui-col-"] {
 }
 
 .positionDiv {
-	height: 150px;
+	height: 250px;
 }
 
 .layui-form-item{
@@ -49,4 +52,17 @@ div[class^="layui-col-"] {
 }
 
 #form {
+}
+.font3 {
+	z-index:2;
+
+}
+
+.font3 > p {
+	position: fixed;
+	left:25%;top:13%;
+	z-index:222;
+font-size: 58px;
+text-shadow: 5px 5px 5px black;
+color: white;
 }

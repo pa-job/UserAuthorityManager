@@ -136,7 +136,7 @@ public interface UserServiceInter {
 	 * @Description:  根据id增加用户 ，返回id   
 	 * @return: int        
 	 */  
-	UserOrganization saveUserBackId(  String usernum, String name  );
+	UserOrganization saveUserBackId( String usernum,String pwd, String name,String remark1,Integer state,String remark2,String note  );
 
 
 	/**   
@@ -160,7 +160,7 @@ public interface UserServiceInter {
 	 * @Description: 根据用户id修改用户信息    
 	 * @return: int        
 	 */  
-	int modifyUserByIdServ(String orgid, String usernum, String name);
+	int modifyUserByIdServ(String orgid, String usernum, String name,String user_password);
 
 
 	/**   

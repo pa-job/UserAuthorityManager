@@ -14,31 +14,17 @@ $(function(){
 	//获取usernum
 	username = getCookie1("name");
 	username = username.substr( 1, username.length-2);
-	userRole = getCookie1("role");
-	$('#userName').find('img').after(username);
+	userRole = getCookie1("roleNames");
+	$('.userName').text(username);
+	$('.adminName').text(username);
 	
 	//从cookie 中获取用户角色,用户名字
  	var role=$.cookie('role').replace(/\"/g, "");
-    var equSrc='equipmentManager_commn.html';
-    var equCountSrc='';
-    console.log(role);
-	if(role==2){
-		equSrc='equipmentManager.html';
-		equCountSrc='';
-		$('#userCalc').show();
-	};
-	$('#ifra').attr('src',equSrc);
+    console.log(userRole);
 	//为导航栏添加点击事件
 	$('#secondMeno >li').each(function(i,obj){
 		$(this).click(function(){
-			if(i==0){
-				$('#ifra').attr('src',equSrc);
-			}else {
-				$('#ifra').attr('src',equCountSrc);
-			}
-			if(i==1){
-				$('#ifra').attr('src',"show.html");
-			}
+			$('#ifra').attr('src', $(this).attr('url') );
 		});
 	})
 	

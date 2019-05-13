@@ -59,7 +59,7 @@ $(function(){
 			layer.open({
 		        type: 1,
 		        title: '增加用户'
-		        ,area: ['40%', '40%']	        	
+		        ,area: ['40%', '80%']	        	
 		        ,id: 'layerDemo'+ 1 //防止重复弹出
 		        ,content: $('#form_add_user')
 		        ,btn: ['提交', '取消']
@@ -164,7 +164,8 @@ $(function(){
 			dataJson ={
 				"orgid": data.orgid,
 				"usernum": data.usernum,
-				"name": data.name || ""
+				"name": data.name || "",
+				"user_password": data.user_password || "123"
 			};
 		console.log( dataJson );
 		ajax( 'put', modifyUserUrl, dataJson, modifyUserSF );
@@ -178,6 +179,7 @@ $(function(){
 		//刷新页面
 		ajax( 'get', getUsersUrl + "/users", {}, getUsersSF, false );
 		layer.msg('保存用户成功', {icon:1});
+		return false;
 	}
 	
 	/*
@@ -228,12 +230,16 @@ $(function(){
 			layout : [ 'prev', 'page', 'next', 'skip',
 					'count', 'limit' ],
 			cols : [ [
-				{type: 'numbers',title:'序号', align:'center', minWidth:120}
-		    	,{field:'orgid', title:'id', minWidth:120, fixed: 'left', hide: true, align:'center'}
-		    	,{field:'usernum', title:'用户编号', minWidth:300, edit: 'text', align:'center'}
-		    	,{field:'name', title:'姓名', minWidth:250, edit: 'text', align:'center'}
-		    	,{field:'state', title:'状态', minWidth:80, sort: true,  hide: true, align:'center'}
-		    	,{fixed: 'right', title:'操作', toolbar: '#barDemo',minWidth:300, align:'center'}
+				{type: 'numbers',title:'序号', align:'center'}
+		    	,{field:'orgid', title:'id',  fixed: 'left', hide: true, align:'center'}
+		    	,{field:'usernum', title:'用户id',  edit: 'text', align:'center'}
+		    	,{field:'name', title:'姓名', edit: 'text', align:'center'}
+		    	,{field:'user_password', title:'密码', edit: 'text', align:'center'}
+		    	,{field:'remark1', title:'性别', align:'center'}
+		    	,{field:'state', title:'年龄', align:'center'}
+		    	,{field:'remark2', title:'所在城市', align:'center'}
+		    	,{field:'note', title:'备注',  align:'center'}
+		    	,{fixed: 'right', title:'操作', toolbar: '#barDemo', align:'center'}
 			] ],
 			id: 'testReload',
 			done : function(res, curr, count) {
