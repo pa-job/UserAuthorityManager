@@ -14,6 +14,9 @@
 	<select id="queryAllroles" resultType="cn.soa.entity.UserRole" >
 		select <include refid="userRoleFiled"> </include> from 
 		iot_user_role role
+		<if test="name !=null">
+		 where name =#{name} 
+		</if>
 		order by rolid
 		<if test="first >= 0  and last!= 0  ">	
 			limit #{first},#{last}

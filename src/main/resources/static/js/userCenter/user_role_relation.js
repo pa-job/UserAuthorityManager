@@ -125,6 +125,13 @@ $(function(){
 				});
 		 }
 	 });
+     
+     //监听角色选择按钮
+     $('#seach').change(function(){
+    	 table.reload('role',{
+    		 where:{name:$('#seach').val()}
+    	 });
+     });
 	 var zNodes;
 	//监听工具条
 	table.on('tool(demo)', function(obj) {
@@ -150,6 +157,7 @@ $(function(){
 			             chkboxType: {"Y": "ps", "N": "s"}
 			         }
 			     };
+
 			//获取角色下的所有用户
 				    $.ajax({
 			     type: "post",

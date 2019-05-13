@@ -119,7 +119,7 @@ public interface UserRoleMapper {
 	 * @Description: 角色信息分页查询  
 	 * @return List<UserRole>
 	 */
-	public List<UserRole> queryAllroles(@Param("first")Integer page, @Param("last")Integer pageSize);
+	public List<UserRole> queryAllroles(@Param("first")Integer page, @Param("last")Integer pageSize,@Param("name")String  name);
 	/**
 	 * @Title: countRoles 
 	 * @Description: 角色数量统计

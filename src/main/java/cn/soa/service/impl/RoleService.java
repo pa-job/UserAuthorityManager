@@ -57,12 +57,12 @@ public class RoleService implements RoleServiceInter{
 	
 
 	@Override
-	public List<UserRole> queryAllroles(Integer page, Integer pageSize) {
+	public List<UserRole> queryAllroles(Integer page, Integer pageSize,String name) {
 		if(page==null || pageSize==null) {
 			page=0;
 			pageSize=0;
 		}
-		return userRoleMapper.queryAllroles((page-1)*pageSize,page*pageSize);
+		return userRoleMapper.queryAllroles((page-1)*pageSize,page*pageSize,name);
 	}
 
 

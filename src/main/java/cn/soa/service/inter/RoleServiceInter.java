@@ -38,7 +38,7 @@ public interface RoleServiceInter {
 	  */  
 	List<UserRole> getUserRoleByNum(String usernum);
 	
-    List<UserRole> queryAllroles(Integer page, Integer pageSize);
+    List<UserRole> queryAllroles(Integer page, Integer pageSize,String name);
     int countRoles();
     public int saveUserRole( UserRole userRole);
     public int modifyUserRoleById(UserRole userRole);
