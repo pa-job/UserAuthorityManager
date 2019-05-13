@@ -95,7 +95,8 @@ function loginClickEvent(){
  * 登录成功回调函数
  */
 function loginCallBack( data ){
-	console.log( '-------登录成功回调函数-----------' );		
+	console.log( '-------登录成功回调函数-----------' );	
+	
 	//跳转主页
 	window.location.href = indexUrl;
 }

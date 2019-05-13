@@ -17,6 +17,36 @@ $(function(){
 	userRole = getCookie1("roleNames");
 	$('.userName').text(username);
 	$('.adminName').text(username);
+
+	
+	var logdata = {};	
+	logdata.operateTime = new Date().toLocaleDateString();
+	logdata.personid = username;
+	logdata.personname = username;
+	logdata.sourcename = "主页";
+	
+	$.ajax({
+	     type: "post",
+	     url: ipPort+"/logs",
+	     data: JSON.stringify(logdata),
+	     async: true, //默认
+	     cache: true, //默认
+	     contentType: "application/json",
+	     dataType: "json",
+	     success: function( jsonData ){
+	    	 if( jsonData ){
+	    		 if( jsonData.state == 0 ){
+	    			 console.log('日志保存成功');
+	    		 }else{
+	    			 console.log('日志保存失败');
+	    		 }
+	    		 
+	    	 }
+	     },
+	     error:function(){
+	    	 layer.msg('请求失败：');
+	     }		       
+	});
 	
 	//从cookie 中获取用户角色,用户名字
  	var role=$.cookie('role').replace(/\"/g, "");
