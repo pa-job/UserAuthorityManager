@@ -97,12 +97,13 @@
 		  	</div>	
 		  	<div class="layui-form-item">
 		    	<label class="layui-form-label">性别</label>
-		    	<div class="layui-input-block">
-		      		<input type="text" name="remark1" id="remark1" autocomplete="off" 
-		      			placeholder="请输入性别" class="layui-input"  style="width:60%;display:inline-block">
-		      		<div style="width:35%;display:inline-block"></div>
-		    	</div>
-		  	</div>		
+		    	<div class="layui-input-block" style="width:45%;">			      
+	      			<select name="remark1" lay-filter="remark1">
+				        <option value="男" selected="">男</option>
+				        <option value="女" >女</option>
+			      	</select>
+		    	</div>	
+		    </div>		
 		  	<div class="layui-form-item">
 		    	<label class="layui-form-label">年龄</label>
 		    	<div class="layui-input-block">

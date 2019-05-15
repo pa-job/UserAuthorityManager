@@ -13,7 +13,7 @@ $(function(){
 	    ,page:true
 	    ,cols: [[
 	      {type:'checkbox'}
-	      ,{type:'numbers'}
+	      ,{type:'numbers', title: '序号'}
 	      ,{field:'rolid', title: '角色id',hide:true}
 	      ,{field:'name', title: '角色名称'} //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
 	      ,{field:'state', title: '状态',hide:true,templet: '#titleTpl'}
@@ -24,16 +24,19 @@ $(function(){
 	    ]]
 	  });			
 	
+	
 	//获取usernum
-	username = getCookie1("name");
+	var username = getCookie1("name");
 	username = username.substr( 1, username.length-2);
+	var usernum = getCookie1("num");
+	usernum = usernum.substr( 1, usernum.length-2);
 	userRole = getCookie1("roleNames");
 	$('.userName').text(username);
 	$('.adminName').text(username);
 
 	var logdata = {};	
 	logdata.operateTime = new Date().toLocaleDateString();
-	logdata.personid = username;
+	logdata.personid = usernum;
 	logdata.personname = username;
 	logdata.sourcename = "角色管理";
 	
@@ -59,7 +62,6 @@ $(function(){
 	    	 layer.msg('请求失败：');
 	     }		       
 	});
-	
 	//表格头工具事件简单封装
 	var toolbarAction={
 			openLayer:function(){
@@ -162,9 +164,9 @@ $(function(){
 				});
 		 }
 	 });
-     
+      
      //监听角色选择按钮
-     $('#seach').change(function(){
+     $('#btn-search').click(function(){
     	 table.reload('role',{
     		 where:{name:$('#seach').val()}
     	 });

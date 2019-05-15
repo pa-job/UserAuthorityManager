@@ -39,8 +39,8 @@ layui.use(['form','jquery',"layer"],function() {
             title : false,
             type : 1,
             content : '<div class="admin-header-lock" id="lock-box">'+
-                            '<div class="admin-header-lock-img"><img src="images/face.jpg" class="userAvatar"/></div>'+
-                            '<div class="admin-header-lock-name" id="lockUserName">驊驊龔頾</div>'+
+                            '<div class="admin-header-lock-img"><img src="../../images/face.jpg" class="userAvatar"/></div>'+
+                            '<div class="admin-header-lock-name" id="lockUserName"></div>'+
                             '<div class="input_btn">'+
                                 '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />'+
                                 '<button class="layui-btn" id="unlock">解锁</button>'+
@@ -190,12 +190,12 @@ layui.use(['form','jquery',"layer"],function() {
                                     '<input type="radio" name="skin" value="默认" title="默认" lay-filter="default" checked="">'+
                                     '<input type="radio" name="skin" value="橙色" title="橙色" lay-filter="orange">'+
                                     '<input type="radio" name="skin" value="蓝色" title="蓝色" lay-filter="blue">'+
-                                    '<input type="radio" name="skin" value="自定义" title="自定义" lay-filter="custom">'+
+                                    '<!--<input type="radio" name="skin" value="自定义" title="自定义" lay-filter="custom">'+
                                     '<div class="skinCustom">'+
                                         '<input type="text" class="layui-input topColor" name="topSkin" placeholder="顶部颜色" />'+
                                         '<input type="text" class="layui-input leftColor" name="leftSkin" placeholder="左侧颜色" />'+
                                         '<input type="text" class="layui-input menuColor" name="btnSkin" placeholder="顶部菜单按钮" />'+
-                                    '</div>'+
+                                    '</div>-->'+
                                 '</div>'+
                                 '<div class="layui-form-item skinBtn">'+
                                     '<a href="javascript:;" class="layui-btn layui-btn-sm layui-btn-normal" lay-submit="" lay-filter="changeSkin">确定更换</a>'+

@@ -12,15 +12,15 @@ layui.config({
 			var form = layui.form;
 			var tree = layui.tree;
 			//获取usernum
-			username = getCookie1("name");
+			var username = getCookie1("name");
 			username = username.substr( 1, username.length-2);
+			var usernum = getCookie1("num");
+			usernum = usernum.substr( 1, usernum.length-2);
 			userRole = getCookie1("roleNames");
-			$('.userName').text(username);
-			$('.adminName').text(username);
 
 			var logdata = {};	
 			logdata.operateTime = new Date().toLocaleDateString();
-			logdata.personid = username;
+			logdata.personid = usernum;
 			logdata.personname = username;
 			logdata.sourcename = "权限管理";
 			

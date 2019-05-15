@@ -10,15 +10,14 @@ layui.config({
 	var laydate = layui.laydate;
 
 	//获取usernum
-	username = getCookie1("name");
+	var username = getCookie1("name");
 	username = username.substr( 1, username.length-2);
-	userRole = getCookie1("roleNames");
-	$('.userName').text(username);
-	$('.adminName').text(username);
+	var usernum = getCookie1("num");
+	usernum = usernum.substr( 1, usernum.length-2);
 
 	var logdata = {};	
 	logdata.operateTime = new Date().toLocaleDateString();
-	logdata.personid = username;
+	logdata.personid = usernum;
 	logdata.personname = username;
 	logdata.sourcename = "资源管理";
 	
